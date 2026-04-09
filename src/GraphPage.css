@@ -1,0 +1,109 @@
+.graph-svg {
+position: fixed;
+width: 100%;
+height: 100vh;
+background: radial-gradient(circle at center, #101010 0%, #000000 80%);
+display: block;
+z-index: 0;
+}
+
+
+label {
+color: white;
+margin-right: 10px;
+}
+
+input[type="range"] {
+width: min(200px, 60%);
+}
+.advanced-div{
+position: absolute;
+top: 0;
+right: 0;
+width: min(50%, 300px);
+height: 100%;
+z-index: 1;
+background: rgb(50, 50, 50, 0.4);
+border-color: rgb(100,100,100);
+border-width: 1px;
+
+/* align contents bottom to top */
+display: flex;
+flex-direction: column-reverse;
+}
+.advanced-control{
+position: relative;
+z-index: 10;
+padding: 10px 20px;
+
+align-items: center;
+background: rgb(107, 107, 107);
+border-radius: 8px;
+white-space: nowrap;
+opacity: 0.4;
+}
+
+.advanced-control:hover {
+opacity: .9;
+}
+.advanced-toggle {
+position: absolute;
+top: 10px;
+right: 10px;
+z-index: 10;
+width: max(10vmin,50px);
+height: max(10vmin,50px);
+opacity : 0.4;
+background: none;
+border: none;
+cursor: pointer;
+padding: 0;
+}
+.advanced-toggle:hover {
+opacity: .9;
+}
+#drag-toggle {
+  width: 40px;
+  height: 20px;
+  accent-color: #4caf50;
+}
+.advanced-toggle img {
+width: 100%;
+height: 100%;
+filter: invert(1);
+}
+
+.filter-div{
+position: absolute;
+top: 0;
+left: 0;
+width: 50%;
+height: 100%;
+z-index: 1;
+opacity: 0.4;
+filter: invert(1);
+}
+.filter-div:hover {
+opacity: .9;
+}
+.filter-toggle {
+position: absolute;
+top: 10px;
+left: 10px;
+z-index: 10;
+width: max(10vmin,50px);
+height: max(10vmin,50px);
+opacity : 0.4;
+background: none;
+border: none;
+cursor: pointer;
+padding: 0;
+}
+.filter-toggle:hover {
+opacity: .9;
+}
+.filter-toggle img {
+width: 80%;
+height: 80%;
+filter: invert(1);
+}

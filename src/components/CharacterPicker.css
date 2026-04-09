@@ -1,0 +1,213 @@
+.modalOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+}
+
+/* ========== Card ========== */
+.modalCard {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #e9e6ea;
+}
+
+/* ========== Header ========== */
+.modalHeader {
+  background: #39b000;
+  padding: 10px;
+  text-align: center;
+}
+
+.modalTitle {
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* ========== Body ========== */
+.modalBody {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1; /* allows grid section to grow */
+  min-height: 0; /* critical for flex scroll areas */
+}
+/* ========== Search ========== */
+.modalSearchRow {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.modalSearch {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid #cfcfd3;
+  background: #f3f3f5;
+  font-size: 14px;
+  outline: none;
+  color: #000000;
+}
+
+.modalSearch:focus {
+  border-color: #969696;
+  background: white;
+}
+/* ========== Scroll Area ========== */
+.modalGridWrap {
+  flex: 1;
+  min-height: 0;
+  background: #f4f4f686;
+  border-radius: 12px;
+  padding: clamp(12px, 2vw, 20px);
+  overflow-y: scroll;
+  direction: rtl;
+}
+
+/* Scrollbar */
+.modalGridWrap::-webkit-scrollbar {
+  width: 4px;
+}
+.modalGridWrap::-webkit-scrollbar-thumb {
+  background: #4b4b4f;
+  border-radius: 8px;
+}
+
+/* ========== Grid ========== */
+.modalGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 7px;
+  justify-items: center;
+}
+
+/* ========== Tile ========== */
+.charTile {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  transition: transform 0.15s ease;
+  width: 100%;
+  max-width: 120px;
+  outline: none;
+}
+
+.charTile--selected .charCircle {
+  border: 3px solid #00c61a;
+  box-shadow: 0 0 0 10px rgba(0, 235, 27, 0.2);
+}
+
+
+.charImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+/* ========== Score Badge ========== */
+
+
+/* ========== Name ========== */
+.charName {
+  font-size: clamp(12px, 2.2vw, 14px);
+  font-weight: 600;
+  color: #6b2c2c;
+  text-align: center;
+  word-break: break-word;
+}
+
+/* ========== Footer ========== */
+.modalFooter {
+  background: #dedde2;
+  padding: clamp(14px, 2vw, 18px);
+  display: flex;
+  justify-content: center;
+}
+
+.modalBtn {
+  width: min(240px, 100%);
+  padding: 10px 0;
+  border-radius: 10px;
+  font-size: clamp(14px, 2vw, 16px);
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+.modalBtn--ghost {
+  background: #d9d9dc;
+  color: #5a2c2c;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.modalBtn--ghost:hover {
+  background: #cfcfd4;
+}
+
+/* ========== Avatar Circle ========== */
+.charCircle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0);
+  border: 2px solid #d5d5d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  filter: invert(1);
+}
+
+.charCircle--none {
+  font-size: 20px;
+  color: #999;
+}
+
+
+/* ========== Score Badge ========== */
+.charScore {
+  position: absolute;
+  top: max(-30px, -3vh);
+  background: #39b000;
+  color: white;
+  font-size: clamp(10px, 2vw, 12px);
+  font-weight: 600;
+  padding: 4px 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+  border-radius: 40%;
+}
+
+/* ========== Mobile Adjustments ========== */
+@media (max-width: 600px) {
+  .modalOverlay {
+    align-items: flex-end;
+  }
+
+  .modalCard {
+    border-radius: 16px 16px 0 0;
+    height: 95vh;
+  }
+
+  .modalGrid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  }
+}
