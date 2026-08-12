@@ -40,7 +40,7 @@
       d.fy = null;
       d.dragging = false;
     });
-  let visibleIDs = $derived(new Set(characters.map(c => c.id.toString())));
+  let visibleIDs = $derived(new Set(characters.map((c: { id: number }) => c.id.toString())));
   function updateNodesAndLinks() {
     // Remove images for hidden nodes, set images for non-hidden nodes
     nodeSelection.select("image")
@@ -121,13 +121,13 @@
   //Add node labels
   nodeSelection.append("text")
     .text(d => d.name)
-    .attr("font-size", 20)
+    .attr("font-size", 30)
     .attr("dominant-baseline", "hanging")
     .attr("text-anchor", "middle")
     .attr("pointer-events", "none")
     .attr("fill", "#fff")
     .attr("stroke", "#000")
-    .attr("stroke-width", 0.2)
+    .attr("stroke-width", 0.3)
     .attr("opacity", 0.0);
 
   zoom = d3.zoom<SVGSVGElement, unknown>()
@@ -241,5 +241,3 @@ const observer = new ResizeObserver((entries) => {
 </svg>
 
 <svg bind:this={graphSvg} width="100%" height="100%"></svg>
-
-
