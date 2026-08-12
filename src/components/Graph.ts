@@ -13,10 +13,6 @@ export type NodeDatum = d3.SimulationNodeDatum & {
     id: string;
     name: string;
     image: string;
-    x?: number;
-    y?: number;
-    fx?: number | null;
-    fy?: number | null;
 };
 export type LinkDatum = d3.SimulationLinkDatum<NodeDatum> & {
     source: string;
@@ -27,7 +23,7 @@ export type LinkDatum = d3.SimulationLinkDatum<NodeDatum> & {
 const Characters: Character[] = charas
     .filter((c: any) => c.released === 1)
     .map((c: any) => {
-    const imagePath = `/src/assets/character_sprites/${c.name}.png`;
+    const imagePath = `/src/assets/character_sprites/char${c.id}.png`;
 
     return {
         id: c.id,
@@ -50,7 +46,7 @@ let Links: LinkDatum[] = [];
 for (let i = 0; i < allCharacterIds.length; i++) {
     for (let j = i + 1; j < allCharacterIds.length; j++) {
         const weight = Norm(duoAffinityMatrix(allCharacterIds)[i][j] ?? 0);
-        if (weight > 0) {
+        if (weight >= 0) {
             Links.push({
                 source: allCharacterIds[i].toString(),
                 target: allCharacterIds[j].toString(),
